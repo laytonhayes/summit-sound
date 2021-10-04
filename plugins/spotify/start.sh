@@ -42,6 +42,7 @@ fi
 # We use set/$@ because librespot for some reason does not like env vars and quote escapes
 echo "Starting Spotify plugin..."
 echo "Device name: $SOUND_DEVICE_NAME"
+echo "Volume Control Type: $SOUND_SPOTIFY_VOLUME_CTRL"
 [[ -n "$SOUND_SPOTIFY_USERNAME" ]] && [[ -n "$SOUND_SPOTIFY_PASSWORD" ]] && echo "Using provided credentials for Spotify login."
 [[ -z "$SOUND_SPOTIFY_DISABLE_NORMALISATION" ]] && echo "Volume normalization enabled."
 [[ -z "$SOUND_SPOTIFY_ENABLE_CACHE" ]] && echo "Spotify audio cache disabled."
@@ -51,7 +52,7 @@ set -- /usr/bin/librespot \
   --name "$SOUND_DEVICE_NAME" \
   --bitrate "$SOUND_SPOTIFY_BITRATE" \
   --cache /var/cache/raspotify \
-  --volume-ctrl "SOUND_SPOTIFY_VOLUME_CTRL" \
+  --volume-ctrl "$SOUND_SPOTIFY_VOLUME_CTRL" \
   "$@"
 
 exec "$@"
