@@ -32,8 +32,8 @@ if [[ -z "$SOUND_SPOTIFY_ENABLE_CACHE" ]]; then
     --disable-audio-cache
 fi
 
-# SOUND_SPOTIFY_AUTOPLAY: Enable Spotify autoplay
-if [[ -z "$SOUND_SPOTIFY_AUTOPLAY" ]]; then
+# SOUND_SPOTIFY_AUTOPLAY: Disable Spotify autoplay
+if [[ -n "$SOUND_SPOTIFY_AUTOPLAY" ]]; then
   set -- "$@" \
     --autoplay
 fi
